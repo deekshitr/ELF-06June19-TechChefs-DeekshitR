@@ -8,7 +8,8 @@ public class Example2 {
 		int nameSize = name.length();
 		System.out.println("nameSize : "+ nameSize);
 		
-		String a = "Dimple";
+		String a = ""
+				+ "Dimple";
 		String b = "";
 
 	}
