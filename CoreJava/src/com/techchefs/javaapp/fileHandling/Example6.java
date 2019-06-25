@@ -1,4 +1,4 @@
-package com.techchefs.javaapp.fileHandling;
+package com.techchefs.javaapp.filehandling;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;

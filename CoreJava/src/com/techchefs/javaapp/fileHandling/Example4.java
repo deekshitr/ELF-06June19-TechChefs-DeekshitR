@@ -1,4 +1,4 @@
-package com.techchefs.javaapp.fileHandling;
+package com.techchefs.javaapp.filehandling;
 import java.io.FileWriter;
 import java.io.IOException;
 

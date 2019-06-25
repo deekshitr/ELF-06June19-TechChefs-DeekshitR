@@ -1,4 +1,4 @@
-package com.techchefs.javaapp.fileHandling;
+package com.techchefs.javaapp.filehandling;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
