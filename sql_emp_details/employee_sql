@@ -1,0 +1,84 @@
+create database techchefs_db;
+
+employee_info                      
+=================                  				
+id (pk)         (int)              
+name            (varchar)          
+age             (int)              
+gender          (varchar)          
+salary          (double)           
+phone           (long)             
+joining_date    (date)             
+acc_num         (long)             
+email           (varchar)          
+designation     (varchar)          
+dob             (date)             
+dept_id(fk)         
+manager_id      (int)            
+                                   
+								   
+employee_other_info							   
+====================
+id (pk)                   (int)
+pan						  (varchar)
+ismarried				  (boolean)
+blood_grp				  (varchar)
+isChallenged			  (boolean)
+emergency_contact_number  (long)
+emergency_contact_name    (varchar)
+nationality				  (varchar)
+religion			      (varchar)
+father_name				  (varchar)
+mother_name				  (varchar)
+spouse_name		   		  (varchar)
+passport				  (varchar)
+aadhardhar				  (long)
+
+employee_address_info
+=================
+id   (pk)               (int) 
+address_type(pk)        (varchar)
+address1				(varchar)
+address2				(varchar)
+landmark				(varchar)
+city					(varchar)
+state					(varchar)
+country					(varchar)
+pincode 				(int)
+
+department_info
+================
+dept_id (pk) (int) 
+dept_name    (varchar)
+
+employee_educational_info
+=========================
+id   (pk)           (int)
+education_type(pk)  (varchar)
+college_name		(varchar)
+university			(varchar)
+yop					(varchar)
+percentage			(double)
+location			(varchar)
+degree_type			(varchar)
+branch				(varchar)
+
+employee_experience_info
+==========================
+id(pk)				(int)
+company_name(pk)	(varchar)
+designation			(varchar)
+joining_date		(date)
+leaving_date		(date)
+
+training_info
+==============
+course_id(pk)  (int)
+course_name	   (varchar)
+duration       (varchar)
+course_type	   (varchar)
+
+employee_training
+==================
+id(pk)         (int)
+course_id(pk)  (int)
