@@ -21,7 +21,7 @@ public class FormHandlingController {
 		return "loginForm";
 	}
 
-	@PostMapping("/login")
+	@PostMapping("/login-submit")
 	public String login(HttpServletRequest req) {
 		int empId = Integer.parseInt(req.getParameter("userId"));
 		String pwd = req.getParameter("password");

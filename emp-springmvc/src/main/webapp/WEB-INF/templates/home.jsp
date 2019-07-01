@@ -71,8 +71,9 @@
                     </li> -->
 			</ul>
 			<form class="form-inline my-2 my-lg-0 ml-auto mx-5"
-				action="./searchemp" method="get">
+				action="../validate/searchemp" method="get">
 				<div class="dropdown">
+				<!-- <input hidden type="text" name = "url" value="searchemp"/> -->
 					<input class="form-control search-box mr-sm-2" type="text"
 						placeholder="Search with emp id or emp name" name="empSearch"
 						aria-label="Search">
@@ -90,7 +91,7 @@
 				<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
 			</form>
 
-			<a class="navbar-brand" href="./logout"> Logout </a>   
+			<a class="navbar-brand" href="../logout"> Logout </a>   
 
 		</div>
 	</nav>

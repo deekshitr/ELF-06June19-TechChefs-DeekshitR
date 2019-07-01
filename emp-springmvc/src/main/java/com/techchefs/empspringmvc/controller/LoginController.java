@@ -13,12 +13,13 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techchefs.empspringmvc.beans.EmployeeInfoBean;
 import com.techchefs.empspringmvc.util.HibernateUtil;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/employee-portal")
 public class LoginController {
 
 	@GetMapping("/login-form")
@@ -26,7 +27,7 @@ public class LoginController {
 		return "login";
 	}
 	
-	@PostMapping("/login")
+	@PostMapping("/home-page")
 	public String login(int id, String password, ModelMap modelMap, HttpServletRequest req) {
 
 		Session session = HibernateUtil.openSession();

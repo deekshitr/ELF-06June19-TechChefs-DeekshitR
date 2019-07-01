@@ -138,11 +138,11 @@
 
 					</select>
 				</div>
-				<!-- <div class="form-group col-md-6">
+				<div class="form-group col-md-6">
 					<label for="inputPassword4">Date Of Birth</label> <input
 						type="date" class="form-control" name="dob"
 						placeholder="dd-mm-yyyy">
-				</div> -->
+				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
@@ -170,13 +170,13 @@
 				</div>
 			</div>
 
-			<!-- <div class="form-row">
+			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputPassword4">Date Of Joining</label> <input
 						type="date" class="form-control" name="joiningDate"
 						placeholder="dd-mm-yyyy">
 				</div>
-			</div> -->
+			</div>
 
 
 			<h3 style="text-align: center; padding: 20px;">Employee Other

@@ -1,8 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
+<%@ page session="false" %>
 
 <%
 	String loginErrMsg = (String) request.getAttribute("loginErrMsg");
+	String logoutSuccessMsg = (String) request.getAttribute("logoutSuccessMsg");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +34,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="./css/style.css">
 
 </head>
 
@@ -55,8 +58,25 @@
 			<%
 				}
 			%>
+			
+			<%
+				if (logoutSuccessMsg != null && !logoutSuccessMsg.isEmpty()) {
+			%>
 
-			<form rol="login" action="./login" method="post" noValidate>
+			<div class="alert alert-success alert-dismissible fade show"
+				role="alert">
+				<strong> <%=logoutSuccessMsg%> </strong>
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+
+			<%
+				}
+			%>
+
+			<form rol="login" action="./home-page" method="post" noValidate>
 				<legend class="text-center">Login</legend>
 				<div class="form-group">
 					<label for="email">Emp ID: </label> <input onkeyup="validateForm()"
