@@ -12,7 +12,7 @@ import com.mysql.jdbc.Driver;
 
 import lombok.extern.java.Log;
 @Log
-public class MyFirstJDBCProgram {
+public class MySecondJDBCProgram {
 	public static void main(String[] args) {
 		
 		Connection con = null;
@@ -25,20 +25,14 @@ public class MyFirstJDBCProgram {
 			Driver driver = new Driver();
 			DriverManager.registerDriver(driver);
 			
-//			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			
 			//2.get the db connected to the driver
-//			String dbUrl = "jdbc:mysql://localhost:3306/techchefs_db?user=root&password=root";
-//			con = DriverManager.getConnection(dbUrl);
-			
-			String dbUrl = "jdbc:mysql://localhost:3306/techchefs_db";
-			
-			con = DriverManager.getConnection(dbUrl, "root", "root");
+			String dbUrl = "jdbc:mysql://localhost:3306/techchefs_db?user=root&password=root";
+			con = DriverManager.getConnection(dbUrl);
 			
 			log.info("connection impl class"+ con.getClass());
 			
 			//3.Issue "SQL Queries" via "Connection"
-			query = "select * from employee_info";
+			query = "select * from employee_info where id=1";
 			stmt = con.createStatement();
 			rs = stmt.executeQuery(query);  
 			
