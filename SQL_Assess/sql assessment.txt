@@ -1,0 +1,58 @@
+1) select name,salary,designation from employee_info;
+
+2)select name, salary,(salary*25/100)+salary as hike_salary from employee_info
+
+3)select * from employee_info where designation="salesman";
+
+4)select * from employee_info where dept_id=20;
+
+5)select * from employee_info where dob<"1991-02-25"
+
+6)select * from employee_info where salary<30000
+
+7)select name, salary,salary*12 as annual_salary from employee_info
+
+8)select * from employee_info where joining_date>"2013-02-01"
+
+9)select * from employee_info where dept_id=2 && salary>25000 && manager_id in (select manager_id from employee_info);
+
+10)select * from employee_info where designation!="Analyst"
+
+11)select * from employee_info where designation!="salesman" && dept_id=30
+
+12)select name from employee_info where (manager_id in (select manager_id from employee_info) && dept_id=30) OR (designation="Tester" && salary<30000) 
+
+13)select * from employee_info where dept_id=20 && (salary>1000 && salary<3500)
+
+14)select * from employee_info where designation="clerk" && dept_id in (20,30,40)
+
+15)select * from employee_info where dept_id in (10,20) && salary>1500
+
+16)select * from employee_info where dept_id in (10,20) && (designation!="Salesman" && designation!="Analyst")
+
+17)select name,salary,salary*12 as annual_salary from employee_info where dept_id in (10,20) && (salary*12>=20000 && salary*12<=40000)
+
+18)select * from employee_info where dept_id in (20,30) && joining_date 
+
+19)select name,joining_date from employee_info where designation in ("salesman","clerk") && (name like "%s%" || name like "%e%");
+
+20)select avg(salary) as avg_sal,max(salary) as highest_sal from employee_info where dept_id=20
+
+21)select max(joining_date) as last_hired,min(joining_date) as first_hired from employee_info
+
+22)select avg(salary) as avg_sal from employee_info where manager_id not in (select manager_id from employee_info) && president_id not in (select president_id from employee_info);
+
+23)select sum(salary) as total_salary,avg(salary) as avg_salary from employee_info group by dept_id
+
+24)
+
+26)select * from employee_info where designation="Software Engineer"
+
+27)
+
+28) select name,dept_name,dept_location from employee_info e inner join department_info d on e.dept_id=d.dept_id;
+
+32)Driver class is a java class present in com.mysql.jdbc jar file provided by mysql vender;
+
+33)db url is the one which uniquely identifies data base in the computer which has protocol, sub protocol and subname.
+
