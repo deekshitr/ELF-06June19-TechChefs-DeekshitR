@@ -1,8 +1,11 @@
 package com.techchefs.designpatterns.dao;
 
 import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -35,10 +38,17 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 	public EmployeeInfoBean getEmployeeInfo(int id) {
 		//1.load the config file
 		Configuration cfg = new Configuration();
+		cfg.configure();
 		/*
-		 * cfg.configure("hibernate.cfg.xml");
-		 */		
-		cfg.configure(new File("D://myhibernate.xml"));
+		 * cfg.configure(); cfg.configure("myhibernate.xml"); cfg.configure(new
+		 * File("D://myhibernate.xml");
+		 */
+		/*
+		 * try { cfg.configure(new URL(
+		 * "https://raw.githubusercontent.com/deekshitr/ELF-06June19-TechChefs-DeekshitR/master/myhibernate.xml"
+		 * )); } catch (HibernateException | MalformedURLException e) { // TODO
+		 * Auto-generated catch block e.printStackTrace(); }
+		 */
 		cfg.addAnnotatedClass(EmployeeInfoBean.class);
 		
 		//2.Build the session factory
@@ -54,6 +64,30 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
 		return empInfo;
 
+	}
+
+	@Override
+	public boolean createEmployeeInfo(EmployeeInfoBean empBean) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean updateEmployeeInfo(EmployeeInfoBean empBean) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteEmployeeInfo(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteEmployeeInfo(String id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
