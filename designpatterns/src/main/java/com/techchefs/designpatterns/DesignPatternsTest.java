@@ -30,8 +30,8 @@ public class DesignPatternsTest {
 
 		/* EmployeeDAO dao = new EmployeeDAOJDBCImpl(); */
 		EmployeeDAO dao = EmployeeDAOFactory.getInstance();
-		printEmpInfo(dao.getEmployeeInfo(1));
-		printEmpInfo(dao.getEmployeeInfo("2"));
+		printEmpInfo(dao.getEmployeeInfo(5));
+		printEmpInfo(dao.getEmployeeInfo("5"));
 
 		/*
 		 * ArrayList<EmployeeInfoBean> empBeans = dao.getAllEmployeeInfo();
