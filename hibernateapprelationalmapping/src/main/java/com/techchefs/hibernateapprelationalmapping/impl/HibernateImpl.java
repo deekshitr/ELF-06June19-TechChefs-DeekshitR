@@ -29,29 +29,38 @@ public class HibernateImpl {
 		
 	}
 	
-	public void createEmployee(
-			EmployeeInfoBean infoBean,
-			EmployeeOtherInfoBean otherInfoBean,
-			List<EmployeeAddressInfoBean> addressInfoBeans,
-			List<EmployeeEducationInfoBean> educationInfoBeans,
-			List<EmployeeExperienceInfoBean> experienceInfoBeans) {
-		
-		Session session = buildSessionFactory().openSession();
-		Transaction transaction = session.beginTransaction();
+	/*
+	 * public void createEmployee( EmployeeInfoBean infoBean, EmployeeOtherInfoBean
+	 * otherInfoBean, List<EmployeeAddressInfoBean> addressInfoBeans,
+	 * List<EmployeeEducationInfoBean> educationInfoBeans,
+	 * List<EmployeeExperienceInfoBean> experienceInfoBeans) {
+	 * 
+	 * Session session = buildSessionFactory().openSession(); Transaction
+	 * transaction = session.beginTransaction(); session.save(infoBean);
+	 * session.save(otherInfoBean); for (EmployeeAddressInfoBean
+	 * employAddressInfoBean: addressInfoBeans) {
+	 * session.save(employAddressInfoBean); }
+	 * 
+	 * for (EmployeeEducationInfoBean employEducationInfoBean: educationInfoBeans) {
+	 * session.save(employEducationInfoBean); } for (EmployeeExperienceInfoBean
+	 * employExperienceInfoBean: experienceInfoBeans) {
+	 * session.save(employExperienceInfoBean); } transaction.commit();
+	 * session.close(); }
+	 */
+	
+	public void createEmployee(EmployeeInfoBean infoBean) {
+		Session session = buildSessionFactory().openSession(); 
+		Transaction transaction = session.beginTransaction(); 
 		session.save(infoBean);
-		session.save(otherInfoBean);
-		for (EmployeeAddressInfoBean employAddressInfoBean: addressInfoBeans) {
-			session.save(employAddressInfoBean);
-		}
-		
-		for (EmployeeEducationInfoBean employEducationInfoBean: educationInfoBeans) {
-			session.save(employEducationInfoBean);
-		}
-		for (EmployeeExperienceInfoBean employExperienceInfoBean: experienceInfoBeans) {
-			session.save(employExperienceInfoBean);
-		}
 		transaction.commit();
 		session.close();
+	}
+	
+	public EmployeeInfoBean getEmployeeInfoBean(int id) {
+		Session session = buildSessionFactory().openSession();
+		EmployeeInfoBean infoBean = session.get(EmployeeInfoBean.class, id);
+		session.close();
+		return infoBean;
 	}
 	
 	public void createTraining(TrainingInfoBean trainingInfoBean) {

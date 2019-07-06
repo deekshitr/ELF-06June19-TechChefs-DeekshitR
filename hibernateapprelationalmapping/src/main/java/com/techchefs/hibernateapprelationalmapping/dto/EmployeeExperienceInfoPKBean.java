@@ -6,13 +6,14 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 
 @Data
 @Embeddable
 public class EmployeeExperienceInfoPKBean implements Serializable {
-	
+
 	@ManyToOne
 	@JoinColumn(name="id")
 	private EmployeeInfoBean infoBean;
