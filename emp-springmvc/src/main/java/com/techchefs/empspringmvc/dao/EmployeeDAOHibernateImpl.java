@@ -95,8 +95,6 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
 	@Override
 	public boolean createEmployeeInfo(EmployeeInfoBean empBean) {
-		EmployeeOtherInfoBean  employeeOtherInfoBean = empBean.getSetOtherInfo();
-		employeeOtherInfoBean.setEmployeeInfoBean(empBean);
 		return saveOrUpdate(empBean);
 	}
 

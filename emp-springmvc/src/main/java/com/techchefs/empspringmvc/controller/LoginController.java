@@ -41,6 +41,11 @@ public class LoginController {
 		return "home";
 	}
 	
+	@GetMapping("/signup-form")
+	public String getSignForm() {
+		return EMPConstants.VIEW_SIGNUP_PAGE;
+	}
+	
 	@PostMapping("/login")
 	public String login(int id, String password, ModelMap modelMap, HttpServletRequest req,
 			@Value(value = "${loginErrMsg}") String loginErrMsg) {

@@ -43,8 +43,10 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				empInfo.setEmail(rsObj.getString("EMAIL"));
 				empInfo.setDesignation(rsObj.getString("DESIGNATION"));
 				//empInfo.setDob(rsObj.getDate("DOB"));
-				empInfo.setDepartmentId(rsObj.getInt("DEPT_ID"));
-				empInfo.setManagerId(rsObj.getInt("MANAGER_ID"));
+				/*
+				 * empInfo.setDepartmentId(rsObj.getInt("DEPT_ID"));
+				 * empInfo.setManagerId(rsObj.getInt("MANAGER_ID"));
+				 */
 				empBeans.add(empInfo);
 			}
 			
@@ -109,8 +111,10 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				empInfo.setEmail(rsObj.getString("EMAIL"));
 				empInfo.setDesignation(rsObj.getString("DESIGNATION"));
 				//empInfo.setDob(rsObj.getDate("DOB"));
-				empInfo.setDepartmentId(rsObj.getInt("DEPT_ID"));
-				empInfo.setManagerId(rsObj.getInt("MANAGER_ID"));
+				/*
+				 * empInfo.setDepartmentId(rsObj.getInt("DEPT_ID"));
+				 * empInfo.setManagerId(rsObj.getInt("MANAGER_ID"));
+				 */
 			}
 
 			return empInfo;

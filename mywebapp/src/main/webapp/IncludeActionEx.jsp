@@ -17,8 +17,8 @@
 	2222222222222222222222
 	<br>
 
-	<jsp:include page="currentDate"></jsp:include>
-	
+	<%-- <jsp:include page="currentDate"></jsp:include>
+
 	333333333333333333333333333
 	<br>
 	<jsp:include page="currentDate?fname=erwfewf&lname=eferff"></jsp:include>
@@ -38,7 +38,7 @@
 	
 	66666666666666666666666666666
 	<br>
-
+ --%>
 	<jsp:include page="MyFirstJSP.jsp"></jsp:include>
 </body>
 </html>
