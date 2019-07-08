@@ -11,7 +11,7 @@ public class HibernateUtil {
 		Configuration cfg = new Configuration();
 		cfg.configure("hibernate.cfg.xml");
 		SessionFactory sessionFactory = cfg.buildSessionFactory();
-
+		
 		return sessionFactory;
 	}
 

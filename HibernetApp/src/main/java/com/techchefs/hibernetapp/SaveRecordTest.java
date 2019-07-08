@@ -19,25 +19,25 @@ public class SaveRecordTest {
 		 * cfg.addAnnotatedClass(EmployeeInfoBean.class);
 		 */		
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		Date joiningDate =  dateFormat.parse("2018-02-17");
-		Date dob =  dateFormat.parse("1991-04-17");
+		Date joiningDate =  dateFormat.parse("2019-02-17");
+		Date dob =  dateFormat.parse("1995-04-17");
 		
 		SessionFactory factory = cfg.buildSessionFactory();
 		Session session = factory.openSession();
 		EmployeeInfoBean empInfo = new EmployeeInfoBean();
-		empInfo.setId(8);
+		empInfo.setId(2);
 		empInfo.setName("Kalpana");
-		empInfo.setAge(28);
+		empInfo.setAge(38);
 		empInfo.setGender("F");
-		empInfo.setSalary(278999);
-		empInfo.setPhone(9988224422L);
+		empInfo.setSalary(62999);
+		empInfo.setPhone(9922244227L);
 		empInfo.setJoiningDate(joiningDate);
 		empInfo.setAccNum(2299115599L);
-		empInfo.setEmail("h@gmail.com");
-		empInfo.setDesignation("Tester");
+		empInfo.setEmail("b@gmail.com");
+		empInfo.setDesignation("Software Endineer");
 		empInfo.setDob(dob);
-		empInfo.setDeptId(1);
-		empInfo.setManagerId(5);
+		empInfo.setDeptId(2);
+		empInfo.setManagerId(1);
 		
 		Transaction transaction = session.beginTransaction();
 		session.save(empInfo);

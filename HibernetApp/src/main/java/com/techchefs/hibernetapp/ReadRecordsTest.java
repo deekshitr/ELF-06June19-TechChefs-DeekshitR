@@ -2,6 +2,7 @@ package com.techchefs.hibernetapp;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 import com.techchefs.hibernetapp.dto.EmployeeInfoBean;
@@ -20,12 +21,17 @@ public class ReadRecordsTest {
 		SessionFactory factory = cfg.buildSessionFactory();
 		Session ses = factory.openSession();
 
-		EmployeeInfoBean bean = ses.get(EmployeeInfoBean.class,1);
+		EmployeeInfoBean bean = ses.get(EmployeeInfoBean.class,4);
 		log.info("EmployeeInfo is :"+bean.getId());
 		log.info("EmployeeInfo is :"+bean.getName());
 		log.info("EmployeeInfo is :"+bean.getSalary());
 		log.info("EmployeeInfo is :"+bean.getDesignation());
 		log.info("EmployeeInfo is :"+bean.getEmail());
+		
+		Transaction transactions =	ses.beginTransaction();
+		/* ses.delete(bean); */
+		transactions.commit();
+		ses.close(); 
 	}
 
 }
