@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -16,8 +18,14 @@ public class MyFirstServlet extends HttpServlet {
 		System.out.println("Inside constructor");
 	}
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+	protected synchronized void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		
+		ServletContext ctx = getServletContext();
+		String movieName = ctx.getInitParameter("movie");
+		
+		ServletConfig config = getServletConfig();
+		String actorName = config.getInitParameter("actor");
 		
 		String httpMethod = req.getMethod();
 		String protocol = req.getProtocol();
@@ -44,6 +52,8 @@ public class MyFirstServlet extends HttpServlet {
 								"	<h1>Current date and time : <br/>"+
 								"	<span style=\"color:red\">"+ currentDateTime +"</span>"+ 
 								"</h1>"+
+								"<h1> Movie Name : "+movieName+" </h1>"+
+								"<h1> Actor Name : "+actorName+" </h1>"+
 								"</body>"+
 								"</html>";
 		
