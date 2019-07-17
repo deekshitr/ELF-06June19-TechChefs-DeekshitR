@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="hr" class="com.techchefs.springcore.beans.DepartmentInfoBean" autowire-candidate="false">
+		<property name="deptId" value="102"></property>
+		<property name="deptName" value="HR"></property>
+	</bean>
+
+</beans>

@@ -16,6 +16,13 @@ public class EmployeeInfoBean implements InitializingBean, DisposableBean {
 //	private double salary;  
 	private DepartmentInfoBean departmentBean;
 	
+	
+	public EmployeeInfoBean(int id, String name, DepartmentInfoBean departmentBean) {
+		this.id = id;
+		this.name = name;
+		this.departmentBean = departmentBean;
+	}
+	
 	public int getId() {
 		return id;
 	}

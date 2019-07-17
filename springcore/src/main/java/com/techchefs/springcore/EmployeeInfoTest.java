@@ -15,7 +15,9 @@ import lombok.extern.java.Log;
 public class EmployeeInfoTest {
 
 	public static void main(String[] args) {
-		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("EmployeeInfoBean.xml");
+//		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("EmployeeInfoBean.xml");
+		
+		ApplicationContext applicationContext = new ClassPathXmlApplicationContext("importAllConfig.xml");
 		EmployeeInfoBean empInfo1 = (EmployeeInfoBean) applicationContext.getBean("empInfoBean");
 		
 		/*

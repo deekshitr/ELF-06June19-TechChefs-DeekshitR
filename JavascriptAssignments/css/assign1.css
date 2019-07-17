@@ -1,0 +1,15 @@
+.eye-icon {
+    cursor: pointer;
+    left: 465px;
+    position: relative;
+    bottom: 30px;
+}
+.err-msg {
+    display: none;
+}
+.container {
+    background: blanchedalmond;
+}
+.sign-up-btn {
+    float: right;
+}
