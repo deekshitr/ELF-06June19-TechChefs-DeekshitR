@@ -20,7 +20,7 @@ import com.techchefs.mywebapp.dao.EmployeeDAOFactory;
 		initParams= {
 				@WebInitParam(name="actress", value="Basanti")
 		})
-public class EmployeeSearch extends HttpServlet {
+public class EmployeeSearchServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
@@ -41,9 +41,10 @@ public class EmployeeSearch extends HttpServlet {
 		if (empBean == null) {
 			out.print("<HTML>");
 			out.print("<BODY>");
-			out.print("<span style=\"color:red\">EMPLOYEE NOT FOUND</span>");
-			out.print("</HTML>");
+			out.print("<BR/>");
+			out.print("<H1 style=\"color:red\">EMPLOYEE NOT FOUND</H1>");
 			out.print("</BODY>");
+			out.print("</HTML>");
 			
 		} else {
 			out.print("<HTML>");
@@ -71,9 +72,36 @@ public class EmployeeSearch extends HttpServlet {
 			out.print("<BR/>	Movie Name        : " + movieName);
 			out.print("<BR/>	Actress Name     : " + actressName);
 			out.print("<BR/>");
-			out.print("</HTML>");
 			out.print("</BODY>");
+			out.print("</HTML>");
 			
+		}
+		
+		//Get the obj from forward servlet
+//		EmployeeInfoBean employeeInfoBean = (EmployeeInfoBean) req.getAttribute("info");
+		
+		EmployeeInfoBean employeeInfoBean = (EmployeeInfoBean) ctx.getAttribute("info");
+		
+		if (employeeInfoBean == null) {
+			out.print("<HTML>");
+			out.print("<BODY>");
+			out.print("<BR/>");
+			out.print("<H1 style=\"color:red\">EMPLOYEEINFOBEAN OBJECT NOT FOUND</H1>");
+			out.print("</BODY>");
+			out.print("</HTML>");
+			
+		} else {
+			out.print("<HTML>");
+			out.print("<BODY>");
+			out.print("<H1 style=\"color:green\">EMPLOYEEINFOBEAN OBJECT FOUND...</H1>");
+			out.print("<BR/>");
+			out.print("<BR/>	id             : " + employeeInfoBean.getId());
+			out.print("<BR/>	name           : " + employeeInfoBean.getName());
+			out.print("<BR/>	phone          : " + employeeInfoBean.getPhone());
+			out.print("<BR/>	email          : " + employeeInfoBean.getEmail());
+			out.print("<BR/>");
+			out.print("</BODY>");
+			out.print("</HTML>");
 		}
 	}
 }

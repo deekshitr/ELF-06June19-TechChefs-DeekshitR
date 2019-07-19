@@ -21,7 +21,7 @@ import lombok.extern.java.Log;
 
 @Log
 @WebServlet("/createemployee")
-public class CreateEmployeeInfo extends HttpServlet{
+public class CreateEmployeeInfoServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
