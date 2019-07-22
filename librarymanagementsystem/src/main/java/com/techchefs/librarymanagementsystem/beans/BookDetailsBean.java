@@ -28,7 +28,7 @@ public class BookDetailsBean implements Serializable {
 	
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "bookId")
-	private List<IssueDetails> bookDetails;
+	private List<IssueDetailsBean> bookDetails;
 	
 	@Id
 	@Column(name="id")

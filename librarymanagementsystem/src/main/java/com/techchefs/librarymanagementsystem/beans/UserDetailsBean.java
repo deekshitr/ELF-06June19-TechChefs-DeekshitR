@@ -30,7 +30,11 @@ public class UserDetailsBean implements Serializable {
 	
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
-	private List<IssueDetails> userIssueDetails;
+	private List<IssueDetailsBean> userIssueDetails;
+	
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+	private List<RequestDetailsBean> userRequestDetails;
 	
 	@Id
 	@Column(name="id")

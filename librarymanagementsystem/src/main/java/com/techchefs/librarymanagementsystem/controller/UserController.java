@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.techchefs.librarymanagementsystem.beans.RequestDetailsBean;
 import com.techchefs.librarymanagementsystem.beans.UserDetailsBean;
 import com.techchefs.librarymanagementsystem.repository.UserRepository;
 
@@ -30,18 +31,18 @@ public class UserController {
 	}
 	
 	@PostMapping(path = "/login", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Response login(int id, String password, HttpServletRequest request) {
+	public UserResponse login(int id, String password, HttpServletRequest request) {
 		
 		UserDetailsBean userInfo = repository.findById(id).get();
 		
-		Response response = new Response();
+		UserResponse response = new UserResponse();
 		
 		if (userInfo != null && userInfo.getPassword().equals(password)) {
 			
 			response.setStatusCode(201);
 			response.setMessage("Successfull");
 			response.setDescription("Logged in Successfully");
-			response.setUserDetailsBean(userInfo);
+			response.setUserDetailsBeans(Arrays.asList(userInfo));
 			
 		} else {
 			response.setStatusCode(301);
@@ -53,17 +54,17 @@ public class UserController {
 		
 	}
 	
-	@PostMapping(path = "/adduser", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Response addUser(@RequestBody UserDetailsBean userDetailsBean) {
+	@PostMapping(path = "/adduserdetails", produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse addUser(@RequestBody UserDetailsBean userDetailsBean) {
 		
-		Response response = new Response();
+		UserResponse response = new UserResponse();
 		
-		if (userDetailsBean.getId() == null) {// && !repository.existsById(userDetailsBean.getId())) {
+		if (userDetailsBean.getId() == null) {
 			repository.save(userDetailsBean);
 			response.setStatusCode(201);
 			response.setMessage("Insertion Successfull");
 			response.setDescription("User details added to the database");
-			response.setUserDetailsBean(userDetailsBean);
+			response.setUserDetailsBeans(Arrays.asList(userDetailsBean));
 		} else {
 			response.setStatusCode(301);
 			response.setMessage("Insertion failed");
@@ -73,9 +74,9 @@ public class UserController {
 		return response;
 	}
 	
-	@PutMapping(path = "/updateuser", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Response editUser(@RequestBody UserDetailsBean userDetailsBean) {
-		Response response = new Response();
+	@PutMapping(path = "/updateuserdetails", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse editUser(@RequestBody UserDetailsBean userDetailsBean) {
+		UserResponse response = new UserResponse();
 		
 		if (repository.existsById(userDetailsBean.getId())) {
 			repository.save(userDetailsBean);
@@ -91,15 +92,15 @@ public class UserController {
 		return response;
 	}
 	
-	@GetMapping(path = "/getuser", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Response getUser(@RequestParam int id) {
+	@GetMapping(path = "/getuserdetails", produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse getUser(@RequestParam int id) {
 
-		Response response = new Response();
+		UserResponse response = new UserResponse();
 
 		if (repository.existsById(id)) {
 			UserDetailsBean userDetailsBean = repository.findById(id).get();
 			response.setStatusCode(201);
-			response.setUserDetailsBean(userDetailsBean);
+			response.setUserDetailsBeans(Arrays.asList(userDetailsBean));
 			response.setMessage("Successfull");
 			response.setDescription("Employee details fetched from the database");
 		} else {
@@ -111,12 +112,12 @@ public class UserController {
 
 	}
 	
-	@GetMapping(path = "/getalluser", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Response getAllEmployee() {
+	@GetMapping(path = "/getalluserdetails", produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse getAllEmployee() {
 		
 		List<UserDetailsBean> userDetailsBeans = repository.findAllUsers();
 
-		Response response = new Response();
+		UserResponse response = new UserResponse();
 
 		if (userDetailsBeans != null) {
 
@@ -135,10 +136,10 @@ public class UserController {
 
 	}
 	
-	@DeleteMapping(path = "/deleteuser", produces = MediaType.APPLICATION_JSON_VALUE)
-	public Response deleteEmployee(@RequestParam int id) {
+	@DeleteMapping(path = "/deleteuserdetails", produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse deleteEmployee(@RequestParam int id) {
 
-		Response response = new Response();
+		UserResponse response = new UserResponse();
 
 		UserDetailsBean infoBean = repository.findById(id).get();
 
@@ -157,5 +158,24 @@ public class UserController {
 		return response;
 
 	}
+	
+	/*
+	 * @PostMapping(path = "/requestbook", produces =
+	 * MediaType.APPLICATION_JSON_VALUE) public UserResponse editUser(@RequestBody
+	 * RequestDetailsBean reqDetailsBean) { UserResponse response = new
+	 * UserResponse();
+	 * 
+	 * if (reqDetailsBean.getId() == null) { repository.save(reqDetailsBean);
+	 * response.setStatusCode(201); response.setMessage("Insertion Successfull");
+	 * response.setDescription("User details added to the database");
+	 * response.setReqDetailsBean(Arrays.asList(reqDetailsBean)); } else {
+	 * response.setStatusCode(301); response.setMessage("Insertion failed");
+	 * response.setDescription("Failed to add User details"); }
+	 * 
+	 * return response;
+	 * 
+	 * }
+	 */
+	
 	
 }
