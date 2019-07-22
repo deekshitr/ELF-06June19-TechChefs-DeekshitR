@@ -12,5 +12,10 @@
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+       <mapping class="com.techchefs.emp.beans.EmployeeInfoBean" />
+       <mapping class="com.techchefs.emp.beans.EmployeeOtherInfoBean" /> 
+       
      </session-factory>
+        
 </hibernate-configuration>

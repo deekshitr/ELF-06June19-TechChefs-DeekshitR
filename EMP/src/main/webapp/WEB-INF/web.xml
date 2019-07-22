@@ -3,5 +3,41 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Archetype Created Web Application</display-name>
+	<display-name>emp2</display-name>
+	
+	<servlet>
+		<servlet-name>login-page</servlet-name>
+		<jsp-file>/login.jsp</jsp-file>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>signup-page</servlet-name>
+		<jsp-file>/signup.jsp</jsp-file>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>home-page</servlet-name>
+		<jsp-file>/home.jsp</jsp-file>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>login-page</servlet-name>
+		<url-pattern>/login-page</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>signup-page</servlet-name>
+		<url-pattern>/signup-page</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>home-page</servlet-name>
+		<url-pattern>/home-page</url-pattern>
+	</servlet-mapping>
+
+	<session-config>
+		<!-- Time in minute -->
+		<session-timeout>5</session-timeout>
+	</session-config>
+
 </web-app>

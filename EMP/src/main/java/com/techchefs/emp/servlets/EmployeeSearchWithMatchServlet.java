@@ -57,7 +57,7 @@ public class EmployeeSearchWithMatchServlet extends HttpServlet {
 			EmployeeInfoBean empBean = new EmployeeInfoBean();
 			empBean.setId(Integer.parseInt(empSearchValue));
 			List<EmployeeInfoBean> empInfo = dao.getMatchedEmployeeInfo(empSearchValue);
-
+		
 			for (EmployeeInfoBean employeeInfoBean : empInfo) {
 				log.info("Name ------> " + employeeInfoBean.getName());
 				log.info("Id ------> " + employeeInfoBean.getId());

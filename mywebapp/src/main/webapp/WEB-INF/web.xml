@@ -4,18 +4,18 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
-		
+
 	<context-param>
-	<param-name>movie</param-name>
-	<param-value>Sholay</param-value>
+		<param-name>movie</param-name>
+		<param-value>Sholay</param-value>
 	</context-param>
-	
+
 	<servlet>
 		<servlet-name>myFirstServlet</servlet-name>
 		<servlet-class>com.techchefs.mywebapp.servlets.MyFirstServlet</servlet-class>
 		<init-param>
-		<param-name>actor</param-name>
-		<param-value>Gabbar</param-value>
+			<param-name>actor</param-name>
+			<param-value>Gabbar</param-value>
 		</init-param>
 	</servlet>
 	<servlet>
@@ -36,6 +36,10 @@
 		<description></description>
 		<servlet-class>com.techchefs.mywebapp.servlets.IncludeServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>myJsp</servlet-name>
+		<jsp-file>/MyFirstJSP.jsp</jsp-file>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>myFirstServlet</servlet-name>
@@ -53,4 +57,9 @@
 		<servlet-name>IncludeServlet</servlet-name>
 		<url-pattern>/include</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>myJsp</servlet-name>
+		<url-pattern>/currentDateJsp</url-pattern>
+	</servlet-mapping>
+
 </web-app>

@@ -2,6 +2,7 @@ package com.techchefs.emp.servlets;
 
 import java.io.IOException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,11 +19,18 @@ public class LogoutServlet extends HttpServlet{
 		HttpSession httpSession = req.getSession(false);
 		if (httpSession != null) {
 			httpSession.invalidate();
-			String url = "login.html";
-			resp.sendRedirect(url);
+			
+			String url = "./login-page?loginErrMsg=Logged out Successfully";
+			
+			RequestDispatcher dispatcher = req.getRequestDispatcher(url);
+			dispatcher.forward(req, resp);
+			
 		} else {
-			String url = "login.html";
-			resp.sendRedirect(url);
+			
+			String url = "./login-page?loginErrMsg=Session timeout!!! Please login again";
+			RequestDispatcher dispatcher = req.getRequestDispatcher(url);
+			dispatcher.forward(req, resp);
+		
 		}
 		
 	}

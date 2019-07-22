@@ -29,6 +29,7 @@ public class EmployeeSearchServlet extends HttpServlet {
 		//Validate the session
 		HttpSession httpSession = req.getSession(false);
 		
+		
 		if (httpSession == null) {
 			String url = "login.html";
 			resp.sendRedirect(url);
