@@ -1,0 +1,31 @@
+.theList {
+    width: 800px;
+    margin: auto;
+    color: black;
+    text-align: left;
+    list-style: none;
+    
+}
+.theList li {
+    word-break: break-all;
+
+}
+.list-container {
+    border: 1px solid #bfb5b5;
+    height: auto;
+    padding: 10px;
+    background: #fff;
+}
+.theList > .list-container:hover {
+    background-color: #F5F5F5;
+}
+
+.list-container > i {
+    cursor: pointer;
+}
+.courousal-container {
+    height: calc(100vh - 56px);;
+}
+.courousal-container .courousal-image {
+    height: calc(100vh - 56px);;
+}
