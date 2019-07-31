@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+
+class Demo extends React.Component {
+        constructor() {
+            super();
+            console.log("constructor");
+            this.state = {
+                favoritecolor: "red"
+            }
+        }
+
+        // static getDerivedStateFromProps(props, state) {
+
+        //     console.log("getDerivedStateFromProps");
+        //     return {
+        //         favoritecolor: props.favcol
+        //     }
+        // }
+
+        shouldComponentUpdate() {
+            return true;
+        }
+
+        // componentDidMount() {
+        //     setTimeout(() => {
+        //         this.setState({favoritecolor: props.favcol});
+        //     }, 1000);
+        // }
+
+        componentWillUnmount() {
+            alert("The component named Header is about to be unmounted.");
+        }
+
+        changeColor = () => {
+            console.log("changeColor");
+            this.setState({favoritecolor: "blue"});
+        }
+
+        render() {
+            console.log("render");
+            return (
+                <div>
+                    <h1>My favorie color is {this.state.favoritecolor}</h1>
+                    <button type="button" onClick={this.changeColor}>Click</button>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<Demo  favcol="yellow"/>, document.getElementById('root'));
+   
+</script>
+</body>
+
+</html>
