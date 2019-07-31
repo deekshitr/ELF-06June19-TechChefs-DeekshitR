@@ -1,14 +1,19 @@
 package com.techchefs.empspringmvc.controller;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -23,6 +28,12 @@ import lombok.extern.java.Log;
 @RequestMapping("/")
 public class SignupController {
 	
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		CustomDateEditor editor = new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true);
+		binder.registerCustomEditor(Date.class, editor);
+	}
+	
 	@GetMapping("/signup-form")
 	public String getSignForm() {
 		return "signup";
@@ -32,10 +43,14 @@ public class SignupController {
 	public String signup(EmployeeInfoBean employeeInfoBean, ModelMap modelMap) {
 		
 		log.info("employeeInfoBean"+employeeInfoBean);
-		
-//		EmployeeDAO dao = EmployeeDAOFactory.getInstance();
-//		boolean empSave = dao.createEmployeeInfo(employeeInfoBean);
-		
+		EmployeeDAO dao = EmployeeDAOFactory.getInstance();
+		boolean empSave = dao.createEmployeeInfo(employeeInfoBean);
+		log.info("empSave" + empSave); 
+		if (empSave) {
+			modelMap.addAttribute("signupSuccessMsg", "SignUp SuccessFull");
+		} else {
+			modelMap.addAttribute("signupErrMsg", "SignUp UnSuccessFull");
+		}
 		return "signup";
 	
 	}

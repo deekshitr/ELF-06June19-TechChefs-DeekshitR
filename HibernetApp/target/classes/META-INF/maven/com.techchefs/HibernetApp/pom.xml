@@ -29,7 +29,7 @@
 		<scope>provided</scope>
 	</dependency>
 	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
-	<dependency>
+	<dependency>	
 	    <groupId>org.hibernate</groupId>
 	    <artifactId>hibernate-core</artifactId>
 	    <version>5.4.3.Final</version>
@@ -51,6 +51,7 @@
 	    <groupId>org.hibernate</groupId>
 	    <artifactId>hibernate-ehcache</artifactId>
 	    <version>5.4.3.Final</version>
+	    
 	</dependency>
 	
   </dependencies>

@@ -19,7 +19,7 @@ public class HibernateRestrictions {
 		SessionFactory factory = HibernateUtil.getSessionFactory();
 		Session session = factory.openSession();
 		Criteria criteria = session.createCriteria(EmployeeInfoBean.class);
-		Criterion cr = Restrictions.eq("id", 1);
+		Criterion cr = Restrictions.eq("id", 1);                       
 		criteria.add(cr);
 		EmployeeInfoBean empInfo = (EmployeeInfoBean) criteria.uniqueResult();
 		

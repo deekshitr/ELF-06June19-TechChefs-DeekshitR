@@ -80,7 +80,7 @@
 		</div>
 
 		<div class="d-block">
-			<a class="btn btn-primary login-up-btn" href="./signup-page">Create
+			<a class="btn btn-primary login-up-btn" href="./signup-form">Create
 				Account</a> <a class="btn btn-primary login-up-btn float-right"
 				href="./forgot-password">Forgot Password</a>
 		</div>

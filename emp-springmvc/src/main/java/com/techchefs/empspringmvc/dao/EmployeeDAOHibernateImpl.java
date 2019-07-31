@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
 import com.techchefs.empspringmvc.beans.EmployeeInfoBean;
+import com.techchefs.empspringmvc.beans.EmployeeOtherInfoBean;
 import com.techchefs.empspringmvc.util.HibernateUtil;
 
 import lombok.extern.java.Log;
@@ -86,6 +87,8 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 
 	@Override
 	public boolean createEmployeeInfo(EmployeeInfoBean empBean) {
+		EmployeeOtherInfoBean  employeeOtherInfoBean = empBean.getSetOtherInfo();
+		employeeOtherInfoBean.setEmployeeInfoBean(empBean);
 		return saveOrUpdate(empBean);
 	}
 

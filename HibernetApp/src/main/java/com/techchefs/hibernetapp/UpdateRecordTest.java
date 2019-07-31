@@ -20,8 +20,9 @@ public class UpdateRecordTest {
 		Session ses =factory.openSession();
 
 		EmployeeInfoBean bean = ses.get(EmployeeInfoBean.class, 1);
-		bean.setAge(29);
+		bean.setAge(30);
 		Transaction transaction =	ses.beginTransaction();
+		ses.update(bean);
 		transaction.commit();
 		ses.close();
 

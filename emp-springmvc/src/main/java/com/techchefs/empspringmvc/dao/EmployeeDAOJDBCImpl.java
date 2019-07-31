@@ -38,11 +38,11 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				empInfo.setGender(rsObj.getString("GENDER"));
 				empInfo.setSalary(rsObj.getDouble("SALARY"));
 				empInfo.setPhone(rsObj.getLong("PHONE"));
-				empInfo.setJoiningDate(rsObj.getDate("JOINING_DATE"));
+				//empInfo.setJoiningDate(rsObj.getDate("JOINING_DATE"));
 				empInfo.setAccNum(rsObj.getLong("ACC_NUM"));
 				empInfo.setEmail(rsObj.getString("EMAIL"));
 				empInfo.setDesignation(rsObj.getString("DESIGNATION"));
-				empInfo.setDob(rsObj.getDate("DOB"));
+				//empInfo.setDob(rsObj.getDate("DOB"));
 				empInfo.setDepartmentId(rsObj.getInt("DEPT_ID"));
 				empInfo.setManagerId(rsObj.getInt("MANAGER_ID"));
 				empBeans.add(empInfo);
@@ -104,11 +104,11 @@ public class EmployeeDAOJDBCImpl implements EmployeeDAO {
 				empInfo.setGender(rsObj.getString("GENDER"));
 				empInfo.setSalary(rsObj.getDouble("SALARY"));
 				empInfo.setPhone(rsObj.getLong("PHONE"));
-				empInfo.setJoiningDate(rsObj.getDate("JOINING_DATE"));
+				//empInfo.setJoiningDate(rsObj.getDate("JOINING_DATE"));
 				empInfo.setAccNum(rsObj.getLong("ACC_NUM"));
 				empInfo.setEmail(rsObj.getString("EMAIL"));
 				empInfo.setDesignation(rsObj.getString("DESIGNATION"));
-				empInfo.setDob(rsObj.getDate("DOB"));
+				//empInfo.setDob(rsObj.getDate("DOB"));
 				empInfo.setDepartmentId(rsObj.getInt("DEPT_ID"));
 				empInfo.setManagerId(rsObj.getInt("MANAGER_ID"));
 			}

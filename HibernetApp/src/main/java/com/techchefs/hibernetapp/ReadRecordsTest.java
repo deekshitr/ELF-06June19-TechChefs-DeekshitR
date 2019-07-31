@@ -21,7 +21,7 @@ public class ReadRecordsTest {
 		SessionFactory factory = cfg.buildSessionFactory();
 		Session ses = factory.openSession();
 
-		EmployeeInfoBean bean = ses.get(EmployeeInfoBean.class,4);
+		EmployeeInfoBean bean = ses.get(EmployeeInfoBean.class,1);
 		log.info("EmployeeInfo is :"+bean.getId());
 		log.info("EmployeeInfo is :"+bean.getName());
 		log.info("EmployeeInfo is :"+bean.getSalary());
@@ -29,7 +29,6 @@ public class ReadRecordsTest {
 		log.info("EmployeeInfo is :"+bean.getEmail());
 		
 		Transaction transactions =	ses.beginTransaction();
-		/* ses.delete(bean); */
 		transactions.commit();
 		ses.close(); 
 	}

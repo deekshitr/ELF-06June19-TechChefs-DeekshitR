@@ -1,6 +1,8 @@
 package com.techchefs.empspringmvc.beans;
 
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 import java.io.Serializable;
 
@@ -16,8 +18,9 @@ import lombok.Data;
 public class EmployeeOtherInfoBean implements Serializable {
 
 	@Id
-	@Column(name = "id")
-	private int id;
+	@OneToOne
+	@JoinColumn(name="id")
+	private EmployeeInfoBean employeeInfoBean;
 	@Column(name = "pan")
 	private String pan;
 	@Column(name = "isMarried")
