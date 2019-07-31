@@ -80,18 +80,18 @@
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputEmail4">ID</label> <input type="text"
-						class="form-control" name="empId" placeholder="Please Enter ID">
+						class="form-control" name="id" placeholder="Please Enter ID">
 				</div>
 				<div class="form-group col-md-6">
 					<label for="inputPassword4">Account Number</label> <input
-						type="text" class="form-control" name="empAccNum"
-						placeholder="Please EnterAccount Numberr ">
+						type="text" class="form-control" name="accNum"
+						placeholder="Please EnterAccount Number ">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputEmail4">Password</label> <input type="password"
-						class="form-control" name="empPassword"
+						class="form-control" name="password"
 						placeholder="Please Enter Password">
 				</div>
 				<div class="form-group col-md-6">
@@ -104,35 +104,33 @@
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputEmail4">Name</label> <input type="text"
-						class="form-control" name="empName"
+						class="form-control" name="name"
 						placeholder="Please Enter Name">
 				</div>
 				<div class="form-group col-md-6">
 					<label for="inputPassword4">Email Id</label> <input type="email"
-						class="form-control" name="empEmailId"
+						class="form-control" name="email"
 						placeholder="Please Enter Email Id ">
 				</div>
-
 			</div>
 
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputEmail4">Age</label><br> <input type="text"
-						class="form-control" name="empAge" placeholder="Please Enter Age">
+						class="form-control" name="age" placeholder="Please Enter Age">
 
 				</div>
 
 				<div class="form-group col-md-6">
 					<label for="inputPassword4">Designation</label> <input type="text"
-						class="form-control" name="empDesignation"
+						class="form-control" name="designation"
 						placeholder="Please Enter Designation">
 				</div>
-
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputEmail4">Gender</label><br> <select
-						class="w-100 h-50" name="empGender">
+						class="w-100 h-50" name="gender">
 						<option value="" disabled="disabled" selected="selected">Please
 							select</option>
 						<option value="Male">Male</option>
@@ -142,32 +140,32 @@
 				</div>
 				<div class="form-group col-md-6">
 					<label for="inputPassword4">Date Of Birth</label> <input
-						type="date" class="form-control" name="empDOB"
+						type="date" class="form-control" name="dob"
 						placeholder="dd-mm-yyyy">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputEmail4">Salary</label> <input type="text"
-						class="form-control" name="empSalary"
+						class="form-control" name="salary"
 						placeholder="Please Enter Salary">
 				</div>
 				<div class="form-group col-md-6">
 					<label for="inputPassword4">Department ID</label> <input
-						type="text" class="form-control" name="empDeptId"
+						type="text" class="form-control" name="departmentId"
 						placeholder="Please Enter Department ID ">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputEmail4">Phone Number</label> <input type="text"
-						class="form-control" name="empPhoneNum"
+						class="form-control" name="phone"
 						placeholder="Please Enter Phone Number">
 				</div>
 				<div class="form-group col-md-6">
 					<label for="inputPassword4">Manager ID</label> <input type="text"
-						class="form-control" name="empManagerId"
-						placeholder="Please Enter Manager ID ">
+						class="form-control" name="managerId"
+						placeholder="Please Enter Manager ID">
 
 				</div>
 			</div>
@@ -175,7 +173,7 @@
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="inputPassword4">Date Of Joining</label> <input
-						type="date" class="form-control" name="empJoiningDate"
+						type="date" class="form-control" name="joiningDate"
 						placeholder="dd-mm-yyyy">
 				</div>
 			</div>
@@ -188,37 +186,35 @@
 
 				<div class="form-group col-md-4">
 					<label for="inputPassword4">Emergency Contact Name</label> <input
-						type="text" class="form-control" name="emergencyContactName"
+						type="text" class="form-control" name="setOtherInfo.emergencyContactName"
 						placeholder="Please Enter Emergency Contact Name ">
 				</div>
 
 				<div class="form-group col-md-4">
-					<label for="inputPassword4">Father Name</label> <input type="text" name="fatherName"
+					<label for="inputPassword4">Father Name</label> <input type="text" name="setOtherInfo.fatherName"
 						class="form-control" placeholder="Please Enter Father Name">
-
-
 				</div>
 
 				<div class="form-group col-md-4">
 					<label for="inputAddress">Mother Name</label> <input type="text"
-						class="form-control" name="motherName"
+						class="form-control" name="setOtherInfo.motherName"
 						placeholder="Please Enter Mother Name">
 				</div>
 			</div>
 
 			<div class="form-row">
 				<div class="form-group col-md-4">
-					<label for="inputEmail4">Pan Number</label> <input type="text" name="panNumber"
+					<label for="inputEmail4">Pan Number</label> <input type="text" name="setOtherInfo.pan"
 						class="form-control" placeholder="Please Enter Pan Number">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="inputPassword4">Emergency Contact Number</label> <input
-						type="text" class="form-control" name="emergencyContactNumber"
+						type="text" class="form-control" name="setOtherInfo.emergencyContactNumber"
 						placeholder="Please Enter Emergency Contact Number ">
 				</div>
 				<div class="form-group col-md-4">
 					<label for="inputAddress">Spouse Name</label> <input type="text"
-						class="form-control" name="spouseName"
+						class="form-control" name="setOtherInfo.spouseName"
 						placeholder="Please Enter Spouse Name">
 				</div>
 			</div>
@@ -226,7 +222,7 @@
 			<div class="form-row">
 				<div class="form-group col-md-4">
 					<label for="inputEmail4">Maraital Status</label><br> 
-					<select name="isMarried"
+					<select name="setOtherInfo.isMarried"
 						style="width: 408.75px; height: 37.99px;">
 						<option value="true">Yes</option>
 						<option value="false">No</option>
@@ -236,7 +232,7 @@
 
 				<div class="form-group col-md-4">
 
-					<label for="inputPassword4">Nationality</label> <select name="nationality"
+					<label for="inputPassword4">Nationality</label> <select name="setOtherInfo.nationality"
 						style="width: 408.75px; height: 37.99px;">
 						<option value="" disabled="disabled" selected="selected">Please
 							select</option>
@@ -247,14 +243,14 @@
 
 				<div class="form-group col-md-4">
 					<label for="inputAddress">Passport Number</label> <input
-						type="text" class="form-control" name="passportNumber" 
+						type="text" class="form-control" name="setOtherInfo.passport" 
 						placeholder="please enter Passport Number">
 				</div>
 
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-4">
-					<label for="inputEmail4">Blood Group</label> <select name="bloodGrp"
+					<label for="inputEmail4">Blood Group</label> <select name="setOtherInfo.bloodGrp"
 						style="width: 408.75px; height: 37.99px;">
 						<option value="" disabled="disabled" selected="selected">Please
 							select</option>
@@ -270,7 +266,7 @@
 				</div>
 				<div class="form-group col-md-4">
 					<label for="inputPassword4">Religion</label> <select
-						style="width: 408.75px; height: 37.99px;" name="religion">
+						style="width: 408.75px; height: 37.99px;" name="setOtherInfo.religion">
 						<option value="" disabled="disabled" selected="selected">Please
 							select</option>
 						<option value="Hinduism">Hinduism</option>
@@ -286,7 +282,7 @@
 				</div>
 				<div class="form-group col-md-4">
 					<label for="inputAddress">Aadhar Number</label> <input type="text"
-						class="form-control" name="aadharNumber"
+						class="form-control" name="setOtherInfo.adhar"
 						placeholder="Please Enter  Aadhar Number">
 				</div>
 			</div>
@@ -295,7 +291,7 @@
 			<div class="form-row">
 				<div class="form-group col-md-4">
 					<label for="inputEmail4">Physically Challenged?</label> <select
-						style="width: 408.75px; height: 37.99px;" name="isChallenged">
+						style="width: 408.75px; height: 37.99px;" name="setOtherInfo.isChallenged">
 						<option value="" disabled="disabled" selected="selected">Please
 							select</option>
 						<option value="true">YES</option>

@@ -25,7 +25,7 @@ public class LoginController {
 	public String getLoginForm() {
 		return "login";
 	}
-
+	
 	@PostMapping("/login")
 	public String login(int id, String password, ModelMap modelMap, HttpServletRequest req) {
 
