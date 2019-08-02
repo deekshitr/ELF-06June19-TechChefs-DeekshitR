@@ -31,7 +31,8 @@
 	crossorigin="anonymous"></script>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="./css/style.css">
+	
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/style.css">
 </head>
 
 <body class="h-100 w-100">
@@ -307,7 +308,7 @@
 		</form>
 
 	</div>
-	<script src="./js/signup.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/signup.js"></script>
 </body>
 
 </html>

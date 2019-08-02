@@ -6,8 +6,12 @@ import javax.servlet.http.HttpSession;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,21 +20,32 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techchefs.empspringmvc.beans.EmployeeInfoBean;
+import com.techchefs.empspringmvc.common.EMPConstants;
 import com.techchefs.empspringmvc.util.HibernateUtil;
 
 @Controller
 @RequestMapping("/employee-portal")
+@PropertySource(EMPConstants.PROPERTY_CLASS_PATH)
 public class LoginController {
-
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+	
 	@GetMapping("/login-form")
 	public String getLoginForm() {
-		return "login";
+		return EMPConstants.VIEW_LOGIN_PAGE;
 	}
 	
-	@PostMapping("/home-page")
-	public String login(int id, String password, ModelMap modelMap, HttpServletRequest req) {
+	@GetMapping("/home-page")
+	public String getHomePage() {
+		return "home";
+	}
+	
+	@PostMapping("/login")
+	public String login(int id, String password, ModelMap modelMap, HttpServletRequest req,
+			@Value(value = "${loginErrMsg}") String loginErrMsg) {
 
-		Session session = HibernateUtil.openSession();
+		Session session = sessionFactory.openSession();
 		Criteria criteria = session.createCriteria(EmployeeInfoBean.class);
 		Criterion cr1 = Restrictions.eq("id", id);
 		Criterion cr2 = Restrictions.eq("password", password);
@@ -44,14 +59,14 @@ public class LoginController {
 			HttpSession httpSession = req.getSession(true);
 			httpSession.setAttribute("empInfo", empInfo);
 			
-			modelMap.addAttribute("empIdValue", id);
+			/* modelMap.addAttribute("empIdValue", id); */
 			
-			return "home";
+			return "redirect:/employee-portal/validate/home-page";
 
 		} else {
 			
-			modelMap.addAttribute("loginErrMsg", "Invalid Emp ID or Password!!! Please try again");
-			return "login";
+			modelMap.addAttribute("loginErrMsg", loginErrMsg);
+			return EMPConstants.VIEW_LOGIN_PAGE;
 		}
 	}
 }

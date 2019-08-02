@@ -4,8 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.techchefs.empspringmvc.beans.EmployeeInfoBean;
 import com.techchefs.empspringmvc.beans.EmployeeOtherInfoBean;
@@ -15,11 +19,14 @@ import lombok.extern.java.Log;
 
 @Log
 public class EmployeeDAOHibernateImpl implements EmployeeDAO {
+	
+	@Autowired
+	private SessionFactory sessionFactory;
 
 	@Override
 	public ArrayList<EmployeeInfoBean> getAllEmployeeInfo() {
 
-		try (Session session = HibernateUtil.openSession();) {
+		try (Session session = sessionFactory.openSession();) {
 			String hql = "from EmployeeInfoBean";
 			Query query = session.createQuery(hql);
 			return (ArrayList<EmployeeInfoBean>) query.list();
@@ -31,7 +38,8 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 	
 	@Override
 	public ArrayList<EmployeeInfoBean> getMatchedEmployeeInfo(String empSearchValue) {
-		try (Session session = HibernateUtil.openSession();) {
+		
+		try (Session session = sessionFactory.openSession();) {
 			String hql = "from EmployeeInfoBean where str(id) like '"+empSearchValue+"%'";
 			Query query = session.createQuery(hql);
 			return (ArrayList<EmployeeInfoBean>) query.list();
@@ -56,7 +64,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 	public EmployeeInfoBean getEmployeeInfo(int id) {
 
 		EmployeeInfoBean empInfo;
-		try (Session session = HibernateUtil.openSession();) {
+		try (Session session = sessionFactory.openSession();) {
 			empInfo = session.get(EmployeeInfoBean.class, id);
 			return empInfo;
 		} catch (Exception e) {
@@ -69,7 +77,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 	private boolean saveOrUpdate(EmployeeInfoBean empBean) {
 		Transaction transaction = null;
 
-		try (Session session = HibernateUtil.openSession();) {
+		try (Session session = sessionFactory.openSession();) {
 			transaction = session.beginTransaction();
 			session.saveOrUpdate(empBean);
 			transaction.commit();
@@ -101,7 +109,7 @@ public class EmployeeDAOHibernateImpl implements EmployeeDAO {
 	public boolean deleteEmployeeInfo(int id) {
 		Transaction transaction = null;
 
-		try (Session session = HibernateUtil.openSession();) {
+		try (Session session = sessionFactory.openSession();) {
 			transaction = session.beginTransaction();
 			session.delete(session.get(EmployeeInfoBean.class, id));
 			transaction.commit();

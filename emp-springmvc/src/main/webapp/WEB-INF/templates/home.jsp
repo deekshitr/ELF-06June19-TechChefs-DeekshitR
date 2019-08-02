@@ -33,9 +33,9 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="./css/home.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/home.css"/>
 
-<script src='./js/home.js'></script>
+<script src='<%=request.getContextPath()%>/resources/js/home.js'></script>
 </head>
 
 <body>
@@ -71,7 +71,7 @@
                     </li> -->
 			</ul>
 			<form class="form-inline my-2 my-lg-0 ml-auto mx-5"
-				action="../validate/searchemp" method="get">
+				action="./searchemp" method="get">
 				<div class="dropdown">
 				<!-- <input hidden type="text" name = "url" value="searchemp"/> -->
 					<input class="form-control search-box mr-sm-2" type="text"
@@ -100,7 +100,7 @@
 		<div class="w-25 left-container">
 			<div>
 			
-			<a href="./profile"><img src="./images/pic1.jpg"
+			<a href="./profile"><img src="<%=request.getContextPath()%>/resources/images/pic1.jpg"
 					class="img-responsive img-thumbnail img-rounded" alt="">
 			</a>
 				
@@ -113,7 +113,7 @@
 
 			</div>
 		</div>
-		<div class="right-container mb-5">
+		<div class="right-container mb-2">
 			<div class="card-group">
 				<div class="card mx-2">
 					<div class="d-flex m-3">

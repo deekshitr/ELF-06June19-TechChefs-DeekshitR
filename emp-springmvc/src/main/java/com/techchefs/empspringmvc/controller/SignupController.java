@@ -8,6 +8,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -29,6 +32,10 @@ import lombok.extern.java.Log;
 @RequestMapping("/")
 public class SignupController {
 	
+	@Autowired
+	@Qualifier("hibernate")
+	EmployeeDAO dao;
+	
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		CustomDateEditor editor = new CustomDateEditor(new SimpleDateFormat("yyyy-MM-dd"), true);
@@ -41,10 +48,11 @@ public class SignupController {
 	}
 	
 	@PostMapping("/createemployee")
-	public String signup(EmployeeInfoBean employeeInfoBean, ModelMap modelMap) {
+	public String signup(EmployeeInfoBean employeeInfoBean, ModelMap modelMap,
+			@Value(value = "${dbInteractionType}") String dbInteractionType) {
 		
 		log.info("employeeInfoBean"+employeeInfoBean);
-		EmployeeDAO dao = EmployeeDAOFactory.getInstance();
+		//EmployeeDAO dao = EmployeeDAOFactory.getInstance(dbInteractionType);
 		boolean empSave = dao.createEmployeeInfo(employeeInfoBean);
 		log.info("empSave" + empSave); 
 		if (empSave) {

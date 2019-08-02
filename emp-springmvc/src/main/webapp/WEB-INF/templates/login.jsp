@@ -4,8 +4,8 @@
 <%@ page session="false" %>
 
 <%
-	String loginErrMsg = (String) request.getAttribute("loginErrMsg");
-	String logoutSuccessMsg = (String) request.getAttribute("logoutSuccessMsg");
+	String loginErrMsg = (String) request.getParameter("loginErrMsg");
+	String logoutSuccessMsg = (String) request.getParameter("logoutSuccessMsg");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +34,7 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/resources/css/style.css"/>
 
 </head>
 
@@ -76,7 +76,7 @@
 				}
 			%>
 
-			<form rol="login" action="./home-page" method="post" noValidate>
+			<form rol="login" action="./login" method="post" noValidate>
 				<legend class="text-center">Login</legend>
 				<div class="form-group">
 					<label for="email">Emp ID: </label> <input onkeyup="validateForm()"
@@ -106,7 +106,7 @@
 		</div>
 	</div>
 
-	<script src="./js/login.js"></script>
+	<script src="<%=request.getContextPath()%>/resources/js/login.js"></script>
 </body>
 
 </html>
