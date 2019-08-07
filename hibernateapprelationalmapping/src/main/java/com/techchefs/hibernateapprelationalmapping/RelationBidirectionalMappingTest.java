@@ -83,12 +83,17 @@ public class RelationBidirectionalMappingTest {
 		experienceInfoBean2.setDesignation("Tester");
 		
 		infoBean.setExpirenceInfoBean(Arrays.asList(experienceInfoBean1, experienceInfoBean2));
-
-		TrainingInfoBean trainingInfoBean1 = new TrainingInfoBean();
-		trainingInfoBean1.setInfoBean(infoBean);
 		
+		
+		TrainingInfoBean trainingInfoBean = new TrainingInfoBean();
+		trainingInfoBean.setCourseId(101);
+		trainingInfoBean.setCourseName("JAVA");
+		trainingInfoBean.setCourseType("Development");
+		trainingInfoBean.setDuration(3);
+		trainingInfoBean.setInfoBean(Arrays.asList(infoBean));
 		
 		HibernateImpl impl = new HibernateImpl();
 		impl.createEmployee(infoBean);
+		impl.createTraining(trainingInfoBean);
 	}
 }

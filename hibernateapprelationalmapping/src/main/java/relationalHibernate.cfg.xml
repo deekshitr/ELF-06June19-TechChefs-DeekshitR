@@ -9,7 +9,7 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/employee_db</property>
         
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">root</property>
+        <property name="hibernate.connection.password">Dee@jain123</property>
         <property name="hibernate.connection.pool_size">1</property>
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
