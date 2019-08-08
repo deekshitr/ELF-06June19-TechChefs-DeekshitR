@@ -1,6 +1,7 @@
 package com.techchefs.empspringmvc.beans;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -21,9 +22,9 @@ public class EmployeeExperienceInfoBean implements Serializable{
 	private String designation;
 	
 	@Column(name="joining_date")
-	private String joiningDate;
+	private Date joiningDate;
 	
 	@Column(name="leaving_date")
-	private String leavingDate;
+	private Date leavingDate;
 	
 }

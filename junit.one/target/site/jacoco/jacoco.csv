@@ -1,0 +1,4 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+junit.one,com.techchefs.javaapp.booleanoperation,BooleanOperation,2,9,1,1,1,3,1,2,0,2
+junit.one,com.techchefs.javaapp.stringoperation,StringOperation,0,9,0,0,0,3,0,3,0,3
+junit.one,com.techchefs.javaapp.mathoperation,MathOperation,0,11,0,0,0,3,0,3,0,3

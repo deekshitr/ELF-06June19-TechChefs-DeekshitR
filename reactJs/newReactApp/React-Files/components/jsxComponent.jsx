@@ -8,7 +8,6 @@ function Demo(props) {
             {/* <button onClick={()=>alert('Button')}>click</button> */}
             <button onClick={alert.bind(this, 'Button')}>click</button>
         </div>
-
     )
 }
 

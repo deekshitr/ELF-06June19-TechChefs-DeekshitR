@@ -23,9 +23,12 @@ import com.techchefs.empspringmvc.beans.EmployeeInfoBean;
 import com.techchefs.empspringmvc.common.EMPConstants;
 import com.techchefs.empspringmvc.util.HibernateUtil;
 
+import lombok.extern.java.Log;
+
 @Controller
 @RequestMapping("/employee-portal")
 @PropertySource(EMPConstants.PROPERTY_CLASS_PATH)
+@Log
 public class LoginController {
 	
 	@Autowired
@@ -71,7 +74,7 @@ public class LoginController {
 		} else {
 			
 			modelMap.addAttribute("loginErrMsg", loginErrMsg);
-			return EMPConstants.VIEW_LOGIN_PAGE;
+			return "redirect:/employee-portal/login-form";
 		}
 	}
 }
