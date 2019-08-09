@@ -45,7 +45,7 @@
 
 <body class="h-100 w-100">
 	<div class="col-md-10 offset-1 mt-5 mb-5 signup-container">
-		<form class="form-container" action="./createemployee" method="post">
+		<form class="form-container" action="./updateemployee" method="post">
 
 			<div>
 				<div class="d-flex align-items-center">
