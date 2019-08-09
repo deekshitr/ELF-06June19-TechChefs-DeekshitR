@@ -5,6 +5,7 @@ import javax.persistence.OneToOne;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -17,19 +18,19 @@ import lombok.Data;
 public class EmployeeOtherInfoBean implements Serializable {
 	
 	@Id
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id")
 	private EmployeeInfoBean infoBean;	
 	@Column(name="pan")
 	private String pan;  
 	@Column(name="isMarried")
-	private boolean isMarried;  
+	private Boolean isMarried;  
 	@Column(name="blood_grp")
 	private String bloodGrp;
 	@Column(name="isChallenged")
-	private boolean isChallenged;
+	private Boolean isChallenged;
 	@Column(name="emergency_contact_number")
-	private long emergencyContactNumber;
+	private Long emergencyContactNumber;
 	@Column(name="emergency_contact_name")
 	private String emergencyContactName;
 	@Column(name="nationality")
@@ -43,9 +44,9 @@ public class EmployeeOtherInfoBean implements Serializable {
 	@Column(name="spouse_name")
 	private String spouseName ;  
 	@Column(name="passport")
-	private long passport;	
+	private Long passport;	
 	@Column(name="aadhardhar")
-	private long adhar;					  
+	private Long adhar;					  
 
 
 }//end of class

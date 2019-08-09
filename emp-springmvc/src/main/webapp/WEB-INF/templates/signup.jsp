@@ -174,7 +174,7 @@
 						</div>
 						<div class="form-group col-md-6">
 							<label for="inputPassword4">Manager ID</label> <input type="number"
-								class="form-control" name="managerId.id"
+								class="form-control" name="manager_Id"
 								placeholder="Please Enter Manager ID">
 
 						</div>
@@ -492,7 +492,7 @@
 						</div>
 						<div class="form-group col-md-6">
 							<label for="inputEmail4">Degree Type</label> <input required
-								type="text" name="DegreeType" class="form-control"
+								type="text" class="form-control"
 								placeholder="Please Enter Degree Type" name="educationInfoBean[0].degreeType">
 						</div>
 

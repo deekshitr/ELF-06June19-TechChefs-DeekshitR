@@ -16,7 +16,7 @@ public class DepartmentInfoBean implements Serializable{
 	
 	@Id
 	@Column(name="dept_id")
-	private int departmentId;
+	private Integer departmentId;
 	
 	@Column(name="dept_name")
 	private String departmentName;

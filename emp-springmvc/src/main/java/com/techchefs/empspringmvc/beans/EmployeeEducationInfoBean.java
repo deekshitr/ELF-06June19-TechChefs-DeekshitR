@@ -28,7 +28,7 @@ public class EmployeeEducationInfoBean implements Serializable {
 	private Date yop;
 	
 	@Column(name="percentage")
-	private double percentage;
+	private Double percentage;
 	
 	@Column(name="location")
 	private String location;

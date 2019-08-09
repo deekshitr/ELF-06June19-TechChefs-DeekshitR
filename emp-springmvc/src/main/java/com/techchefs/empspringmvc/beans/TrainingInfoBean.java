@@ -21,13 +21,13 @@ public class TrainingInfoBean implements Serializable {
 	
 	@Id
 	@Column(name="course_id")
-	private int courseId;
+	private Integer courseId;
 	
 	@Column(name="course_name")
 	private String courseName;
 	
 	@Column(name="duration")
-	private int duration;
+	private Integer duration;
 	
 	@Column(name="course_type")
 	private String courseType;

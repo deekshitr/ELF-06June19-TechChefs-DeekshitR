@@ -118,8 +118,7 @@
 				<div class="card mx-2">
 					<div class="d-flex m-3">
 						<h2 class="card-title">Employee Info</h2>
-						<button name="mybutton" type="button" id="loginbtn"
-							class="btn btn-primary w-25 login-up-btn ml-auto">Edit</button>
+						<a href="./update-emp-form" class="btn btn-primary w-25 login-up-btn ml-auto" >Edit</a>
 					</div>
 					<div class="card-body">
 						<div>
@@ -179,11 +178,6 @@
 					</div>
 					<div class="card-body">
 						<div>
-
-							<div class="d-flex">
-								<p class="card-text">EMP ID :</p>
-								<div class="ml-2">1</div>
-							</div>
 
 							<div class="d-flex">
 								<p class="card-text">EMP First Name :</p>
