@@ -11,15 +11,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.techchefs.empspringmvc.beans.EmployeeAddressInfoBean;
+import com.techchefs.empspringmvc.beans.EmployeeEducationInfoBean;
+import com.techchefs.empspringmvc.beans.EmployeeExperienceInfoBean;
 import com.techchefs.empspringmvc.beans.EmployeeInfoBean;
+import com.techchefs.empspringmvc.beans.EmployeeOtherInfoBean;
 import com.techchefs.empspringmvc.common.EMPConstants;
 import com.techchefs.empspringmvc.dao.EmployeeDAO;
 import com.techchefs.empspringmvc.dao.EmployeeDAOFactory;
 
+import lombok.extern.java.Log;
 
+@Log
 @Controller
 @RequestMapping("/employee-portal")
 public class HomeController {
@@ -49,5 +56,44 @@ public class HomeController {
 	 */
 	
 	
+	@PostMapping("/updateemployee")
+	public String signup(EmployeeInfoBean employeeInfoBean, ModelMap modelMap, int manager_Id) {
+
+		for (EmployeeEducationInfoBean employeeEducationInfoBean : employeeInfoBean.getEducationInfoBean()) {
+			employeeEducationInfoBean.getEmpEducationInfoPKBean().setInfoBean(employeeInfoBean);
+		}
+
+		for (EmployeeAddressInfoBean addressInfoBean : employeeInfoBean.getAddressInfoBean()) {
+			addressInfoBean.getEmpAddressPKBean().setInfoBean(employeeInfoBean);
+		}
+
+		for (EmployeeExperienceInfoBean employeeExperienceInfoBean :  employeeInfoBean.getExpirenceInfoBean()) {
+			employeeExperienceInfoBean.getEmpExperienceInfoPKBean().setInfoBean(employeeInfoBean);
+		}
+
+		// EmployeeDAO dao = EmployeeDAOFactory.getInstance(dbInteractionType);
+
+		EmployeeOtherInfoBean otherInfoBean = employeeInfoBean.getOtherInfoBean();
+		otherInfoBean.setInfoBean(employeeInfoBean);		
+		
+		EmployeeInfoBean managerInfoBean = dao.getEmployeeInfo(manager_Id);
+		employeeInfoBean.setManagerId(managerInfoBean);
+		
+		boolean empSave = dao.createEmployeeInfo(employeeInfoBean);
+		log.info("empSave" + empSave);
+		if (empSave) {
+			modelMap.addAttribute("editEmpSuccess", "Edit SuccessFull");
+			
+			return "redirect:/employee-portal/validate/home-page";
+			
+		} else {
+			modelMap.addAttribute("editEmpError", "Edit UnSuccessFull");
+			
+			return "redirect:/employee-portal/validate/home-page";
+		}
+		
+		
+
+	}
 	
 }

@@ -59,11 +59,11 @@
 
 				<div id="empInfo">
 					<div class="form-row">
-						<div class="form-group col-md-6">
+						<%-- <div class="form-group col-md-6">
 							<label for="inputEmail4">ID</label> <input type="number"
 								class="form-control" name="id" placeholder="Please Enter ID"
 								value="<%=empInfo.getId()%>">
-						</div>
+						</div> --%>
 						<div class="form-group col-md-6">
 							<label for="inputPassword4">Account Number</label> <input
 								type="number" class="form-control" name="accNum"
