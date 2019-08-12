@@ -1,11 +1,11 @@
 <%@page
-	import="com.techchefs.empspringmvc.beans.EmployeeExperienceInfoBean"%>
+	import="com.techchefs.empspringrest.beans.EmployeeExperienceInfoBean"%>
 <%@page
-	import="com.techchefs.empspringmvc.beans.EmployeeEducationInfoBean"%>
+	import="com.techchefs.empspringrest.beans.EmployeeEducationInfoBean"%>
 <%@page import="java.util.List"%>
 <%@page
-	import="com.techchefs.empspringmvc.beans.EmployeeAddressInfoBean"%>
-<%@page import="com.techchefs.empspringmvc.beans.EmployeeInfoBean"%>
+	import="com.techchefs.empspringrest.beans.EmployeeAddressInfoBean"%>
+<%@page import="com.techchefs.empspringrest.beans.EmployeeInfoBean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
