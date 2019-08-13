@@ -28,6 +28,8 @@ export class CreateAccount extends Component {
                     password: '',
                     isSuccess: true
                 })
+
+                alert("Record added successfully");
             } else {
                 this.setState({
                     isSuccess: false
@@ -46,25 +48,25 @@ export class CreateAccount extends Component {
                    
                 </div> */}
 
-                <form onSubmit={this.postData}>
+                <form onSubmit={this.postData} noValidate>
                     <div className="row">
                         <div className="col">
                             <input type="text" className="form-control" placeholder="Name" value={this.state.name}
-                            onChange={(event)=>{this.setState({name: event.target.value})}}/>
+                            onChange={(event)=>{this.setState({name: event.target.value})}} required/>
                         </div>
                             <div className="col">
                                 <input type="email" className="form-control" placeholder="Email" value={this.state.email}
-                                onChange={(event)=>{this.setState({email: event.target.value})}}/>
+                                onChange={(event)=>{this.setState({email: event.target.value})}} required/>
                             </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col">
                             <input type="number" className="form-control" placeholder="Phone Number" value={this.state.phoneno}
-                            onChange={(event)=>{this.setState({phoneno: event.target.value})}}/>
+                            onChange={(event)=>{this.setState({phoneno: event.target.value})}} required/>
                         </div>
                             <div className="col">
                                 <input type="password" className="form-control" placeholder="Password" value={this.state.password}
-                                onChange={(event)=>{this.setState({password: event.target.value})}}/>
+                                onChange={(event)=>{this.setState({password: event.target.value})}} required/>
                             </div>
                     </div>
 

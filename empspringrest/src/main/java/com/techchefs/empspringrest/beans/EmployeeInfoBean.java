@@ -25,30 +25,42 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.omg.CosNaming.NamingContextExtPackage.AddressHelper;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonRootName;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.Data;
 
-@XmlRootElement(name="employee-info-bean")
-@XmlAccessorType(XmlAccessType.FIELD)
+@JsonIdentityInfo(generator = 
+		ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonRootName(value = "employee-info-bean")
+//@XmlRootElement(name="employee-info-bean")
+//@XmlAccessorType(XmlAccessType.FIELD)
 //@Data
 @Entity
 @Table(name="employee_info")
 public class EmployeeInfoBean implements Serializable{
 	
-	@XmlElement(name="other-info")
+	//@XmlElement(name="other-info")
+	@JsonProperty(value="other-info")
 	@OneToOne(cascade = CascadeType.ALL, mappedBy = "infoBean")
 	private EmployeeOtherInfoBean otherInfoBean;
 	
-	@XmlElement(name="address-info")
+	//@XmlElement(name="address-info")
+	@JsonProperty(value="address-info")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "empAddressPKBean.infoBean")
 	private List<EmployeeAddressInfoBean> addressInfoBean;
 	
-	@XmlElement(name="education-info")
+	//@XmlElement(name="education-info")
+	@JsonProperty(value="education-info")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "empEducationInfoPKBean.infoBean")
 	private List<EmployeeEducationInfoBean> educationInfoBean;
 	
-	@XmlElement(name="experience-info")
+	//@XmlElement(name="experience-info")
+	@JsonProperty(value="experience-info")
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "empExperienceInfoPKBean.infoBean")
 	private List<EmployeeExperienceInfoBean> expirenceInfoBean;
@@ -72,11 +84,13 @@ public class EmployeeInfoBean implements Serializable{
 	@Column(name="phone")
 	private Long phone;    
 	
-	@XmlElement(name="joining-date")
+	//@XmlElement(name="joining-date")
+	@JsonProperty(value="joining-date")
 	@Column(name="joining_date")
 	private Date joiningDate; 
 	
-	@XmlElement(name="acc-num")
+	//@XmlElement(name="acc-num")
+	@JsonProperty(value="acc-num")
 	@Column(name="acc_num")
 	private Long accNum;
 	@Column(name="email")

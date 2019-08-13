@@ -14,7 +14,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import lombok.Data;
 
 //@Data
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlAccessorType(XmlAccessType.FIELD)
 @Entity
 @Table(name="employee_experience_info")
 public class EmployeeExperienceInfoBean implements Serializable{
