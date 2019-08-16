@@ -86,12 +86,12 @@ public class EmployeeInfoBean implements Serializable{
 	private Long phone;    
 	
 	//@XmlElement(name="joining-date")
-	@JsonProperty(value="joining-date")
+	//@JsonProperty(value="joining-date")
 	@Column(name="joining_date")
 	private Date joiningDate; 
 	
 	//@XmlElement(name="acc-num")
-	@JsonProperty(value="acc-num")
+	//@JsonProperty(value="acc-num")
 	@Column(name="acc_num")
 	private Long accNum;
 	@Column(name="email")

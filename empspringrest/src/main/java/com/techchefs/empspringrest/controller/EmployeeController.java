@@ -1,6 +1,7 @@
 package com.techchefs.empspringrest.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -37,6 +39,7 @@ import com.techchefs.empspringrest.dao.EmployeeDAO;
 
 import lombok.extern.java.Log;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @Log
 //@Controller
 @RestController
@@ -118,9 +121,12 @@ public class EmployeeController {
 		EmployeeResponse response = new EmployeeResponse();
 
 		if (request.getSession(false) != null) {
-
-			if (dao.getEmployeeInfo(empSearch) != null) {
+			
+			EmployeeInfoBean infoBean = dao.getEmployeeInfo(empSearch);
+			
+			if (infoBean != null) {
 				response.setStatusCode(201);
+				response.setEmpInfoBeans(Arrays.asList(infoBean));
 				response.setMessage("Successfull");
 				response.setDescription("Employee details fetched from the database");
 			} else {

@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ import com.techchefs.empspringmvc.util.HibernateUtil;
 
 import lombok.extern.java.Log;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @Controller
 @RequestMapping("/employee-portal")
 @PropertySource(EMPConstants.PROPERTY_CLASS_PATH)
