@@ -8,6 +8,7 @@ import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -24,12 +25,23 @@ import lombok.Data;
 @Table(name="employee_other_info")
 public class EmployeeOtherInfoBean implements Serializable {
 	
+	@Id
+	@Column(name = "other_info_id")
+	@GeneratedValue
+	private Integer otherInfoId;
 	//@XmlTransient
 	@JsonIgnore
-	@Id
+	//@Id
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "emp_id", referencedColumnName = "id", unique = true, nullable = false)
 	private EmployeeInfoBean infoBean;	
+
+	public Integer getOtherInfoId() {
+		return otherInfoId;
+	}
+	public void setOtherInfoId(Integer otherInfoId) {
+		this.otherInfoId = otherInfoId;
+	}
 	@Column(name="pan")
 	private String pan;  
 	@Column(name="isMarried")
