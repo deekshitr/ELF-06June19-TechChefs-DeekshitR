@@ -1,0 +1,17 @@
+/* ----------------------login--------------------------  */
+.eye-icon {
+    cursor: pointer;
+    left: 465px;
+    position: relative;
+    bottom: 30px;
+}
+.err-msg {
+    display: none;
+}
+.login-container {
+    height: 400px;
+    background: #dfe7ef;
+}
+.login-container > .form-container {
+    height: 300px;
+}
