@@ -28,6 +28,7 @@ public class RequestDetailsBean implements Serializable {
 	@JoinColumn(name="user_id")
 	private UserDetailsBean userId;
 	
+	 
 	@ManyToOne
 	@JoinColumn(name="book_id")
 	private BookDetailsBean bookId;

@@ -195,6 +195,8 @@ public class UserController {
 		byte[] b;
 		try {
 			b = uploadedFile.getBytes();
+			UserDetailsBean bean = new UserDetailsBean();
+			bean.setImageFile(b);
 			File file = new File("D:/" + uploadedFile.getOriginalFilename());
 			FileOutputStream fileOutputStream = new FileOutputStream(file);
 			fileOutputStream.write(b);
