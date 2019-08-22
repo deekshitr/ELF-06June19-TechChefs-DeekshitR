@@ -1,5 +1,6 @@
 package com.techchefs.librarymanagementsystem.beans;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -55,5 +56,8 @@ public class UserDetailsBean implements Serializable {
 	
 	@Column(name="address")
 	private String address;
+	
+	@Column(name = "image")
+	private byte[] imageFile;
 	
 }

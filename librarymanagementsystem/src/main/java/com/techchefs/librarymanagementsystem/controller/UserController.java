@@ -1,5 +1,8 @@
 package com.techchefs.librarymanagementsystem.controller;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.techchefs.librarymanagementsystem.beans.RequestDetailsBean;
 import com.techchefs.librarymanagementsystem.beans.UserDetailsBean;
@@ -183,6 +187,34 @@ public class UserController {
 
 		return response;
 
+	}
+	
+	@PostMapping(path = "/file", produces = MediaType.APPLICATION_JSON_VALUE)
+	public UserResponse uploadImage(@RequestParam("fileURL") MultipartFile uploadedFile) {
+		UserResponse response = new UserResponse();
+		byte[] b;
+		try {
+			b = uploadedFile.getBytes();
+			File file = new File("D:/" + uploadedFile.getOriginalFilename());
+			FileOutputStream fileOutputStream = new FileOutputStream(file);
+			fileOutputStream.write(b);
+			fileOutputStream.flush();
+			fileOutputStream.close();
+			
+			
+			response.setStatusCode(201);
+			response.setMessage("File Uploaded Successfull");
+			response.setDescription("Successfull");
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+			response.setStatusCode(201);
+			response.setMessage("File Upload Failed");
+			response.setDescription("failed!!!");
+		}
+			
+		return response;
+		
 	}
 
 }
